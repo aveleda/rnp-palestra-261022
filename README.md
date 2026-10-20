@@ -137,6 +137,9 @@ sbatch 08_pyxis.sh
 sbatch 09_srun_container.sh
 ```
 
+1. Na saída, identifique o que rodou no host e o que rodou dentro do container. Compare os horários
+   (`date +%T`) antes e depois do `srun`: por que a primeira execução demora mais? (import da imagem pelo Enroot)
+
 ---
 
 ## 10. Container (sbatch) - `10_sbatch_container.sh`
@@ -144,6 +147,10 @@ sbatch 09_srun_container.sh
 ```bash
 sbatch 10_sbatch_container.sh
 ```
+
+1. Antes de submeter, verifique se o `sbatch` aceita as opções de container: `sbatch --help | grep -i container`.
+   Se não aceitar, o que acontece com as linhas `#SBATCH --container-*`?
+2. Repare que o script monta apenas `/scratch:/scratch`, mas executa `cd $SLURM_SUBMIT_DIR`. Se o diretório de submissão não estiver sob `/scratch`, o `pytorch_test.py` é encontrado? 
 
 ---
 
