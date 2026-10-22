@@ -96,14 +96,14 @@ watch -n 5 squeue -u $USER -o '"%.12i %.10j %.8T %.20R"'
 
 ```bash
 srun --mpi=list                         # plugins disponíveis
-module load OpenMPI                     # ou o módulo MPI do seu site
+module load openmpi/gcc/64              # ou o módulo MPI do seu site
 mpicc -o mpi_hello 06_mpi_hello.c
 sbatch 06_mpi.sh
 ```
 
-1. A saída mostra 8 ranks em 2 nós?
+1. A saída mostra 8 ranks em 1 nós?
 2. Troque `--mpi=pmix` por `--mpi=pmi2` (se disponível). Funciona?
-3. Rode interativamente: `salloc -N2 --ntasks-per-node=2 -t 10` e `srun ./mpi_hello`.
+3. Rode interativamente: `salloc -N1 --ntasks-per-node=2 -t 10` e `srun ./mpi_hello`.
 
 ---
 
