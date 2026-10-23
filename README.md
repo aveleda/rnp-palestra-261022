@@ -101,7 +101,7 @@ mpicc -o mpi_hello 06_mpi_hello.c
 sbatch 06_mpi.sh
 ```
 
-1. A saída mostra 8 ranks em 1 nós?
+1. A saída mostra 8 ranks em 1 nó?
 2. Troque `--mpi=pmix` por `--mpi=pmi2` (se disponível). Funciona?
 3. Rode interativamente: `salloc -N1 --ntasks-per-node=2 -t 10` e `srun ./mpi_hello`.
 
